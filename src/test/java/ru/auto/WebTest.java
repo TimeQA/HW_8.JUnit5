@@ -69,7 +69,7 @@ public class WebTest {
 
     //    Parameterized test, two arguments input and expected output array. Result match expected.
 //    Ресурс блокирует доступ из-за автоматических запрсоов.
-    static Stream<Arguments> avtoRuDropMenuTest() {
+    static Stream<Arguments> commonComplexAvtoRuDropMenuTest() {
         return Stream.of(
                 Arguments.of("Коммерческие", List.of("Лёгкие коммерческие", "Грузовики", "Седельные тягачи", "Автобусы",
                         "Прицепы и полуприцепы", "Сельскохозяйственная", "Строительная и дорожная",
@@ -80,7 +80,7 @@ public class WebTest {
 
     @MethodSource
     @ParameterizedTest(name = "Для типа транспорта \"{0}\" отображаются виды \"{1}\"")
-    void avtoRuDropMenuTest(String typeTransport, List<String> expectedSubspeciesTransport) {
+    void commonComplexAvtoRuDropMenuTest(String typeTransport, List<String> expectedSubspeciesTransport) {
         open("https://auto.ru/");
 //        Не помогает обходить капчу
         clearBrowserCookies();
@@ -92,13 +92,13 @@ public class WebTest {
         clearBrowserLocalStorage();
     }
 
-//    Проверка плавильности выбранных селекторов, так как прошлый тест полностью не выполняется
+//    Проверка правильности выбранных селекторов, так как прошлый тест полностью не выполняется
     @CsvSource(value = {
             "Коммерческие, Грузовики",
             "Мото, Скутеры"
     })
     @ParameterizedTest(name = "Результы поиска содержат раздел \"{1}\" запроса \"{0}\"")
-    void commonComplexAvitoTest2(String testData, String expectedResult) {
+    void commonAvtoRuTest(String testData, String expectedResult) {
         open("https://auto.ru/");
 //        Не уверен нужно ли это здесь
         clearBrowserCookies();
