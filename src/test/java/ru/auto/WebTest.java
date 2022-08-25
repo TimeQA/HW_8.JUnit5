@@ -23,7 +23,7 @@ public class WebTest {
     //    Usual test. Result test not empty
     @DisplayName("Результаты поиска не пустые для запроса 'HUAWEI' на сайте магазина mvideo")
     @Test
-    void MvideoTest() {
+    void mVideoTest() {
         open("https://www.mvideo.ru/");
         $("div.app-header-navbar input.input__field").setValue("HUAWEI");
         $("[type=\"search\"]").click();
